@@ -168,4 +168,3 @@ MIT — úsalo, modifícalo, mejóralo. Si te sirve, deja una estrella en el rep
   <strong>DreamCut</strong> — tus descargas, tu máquina, tu reglas.<br>
   Hecho con Python, café y cero trackers.
 </p>
->>>>>>> 8309158 (DreamCut: descargador local de video)
