@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>DreamCut</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="top">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <div>
+            <h1>DreamCut</h1>
+            <p class="caption">Descargador local</p>
+          </div>
+        </div>
+        <span id="server-status" class="chip chip-muted">…</span>
+      </header>
+
+      <form id="form" class="card glass">
+        <div class="field-block">
+          <span class="caption">Enlace del video</span>
+          <input
+            id="url"
+            class="field"
+            type="url"
+            placeholder="Pega URL de YouTube, TikTok…"
+            required
+          />
+        </div>
+
+        <div class="btn-row">
+          <button type="submit" id="btn-analyze" class="btn btn-primary">
+            <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="7" />
+              <path d="M20 20l-3-3" />
+            </svg>
+            Analizar
+          </button>
+        </div>
+
+        <div class="btn-row split">
+          <button type="button" id="btn-quick-mp3" class="btn btn-secondary">
+            <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 18V5l12-2v13" />
+              <circle cx="6" cy="18" r="3" />
+              <circle cx="18" cy="16" r="3" />
+            </svg>
+            MP3 rápido
+          </button>
+        </div>
+
+        <div class="field-block">
+          <span class="caption">Perfil</span>
+          <div class="row-inline">
+            <select id="profile-select" class="field field-select"></select>
+            <button type="button" id="btn-profile" class="btn btn-ghost">Aplicar</button>
+          </div>
+        </div>
+
+        <div class="chips-row">
+          <label class="chip-toggle"><input type="checkbox" id="subs-es" /><span>SRT ES</span></label>
+          <label class="chip-toggle"><input type="checkbox" id="subs-en" /><span>SRT EN</span></label>
+        </div>
+
+        <p id="error" class="banner banner-error hidden" role="alert"></p>
+      </form>
+
+      <section id="result" class="hidden stack">
+        <article class="card glass media-card">
+          <div class="card-top">
+            <span class="caption" id="result-date"></span>
+          </div>
+          <div class="media-body">
+            <img id="thumb" alt="" class="thumb hidden" />
+            <div>
+              <h2 id="title" class="card-title"></h2>
+              <p id="meta" class="meta"></p>
+              <div id="result-tags" class="chips-row"></div>
+            </div>
+          </div>
+        </article>
+
+        <section class="card glass">
+          <div class="section-head">
+            <h3>Video</h3>
+            <span class="chip chip-purple">MP4</span>
+          </div>
+          <ul id="mp4-list" class="format-list"></ul>
+        </section>
+
+        <section class="card glass">
+          <div class="section-head">
+            <h3>Audio</h3>
+            <span class="chip chip-blue">MP3</span>
+          </div>
+          <ul id="mp3-list" class="format-list"></ul>
+        </section>
+      </section>
+
+      <footer class="foot">
+        <button type="button" id="btn-open-web" class="btn btn-ghost btn-full">
+          Abrir panel completo
+        </button>
+      </footer>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+</html>

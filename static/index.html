@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DreamCut — Descargador</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <main class="wrap">
+      <header class="site-header">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <div>
+          <h1>DreamCut</h1>
+          <p class="sub">YouTube · TikTok · Instagram · X · Twitch</p>
+        </div>
+      </header>
+
+      <nav class="tabs">
+        <button type="button" class="tab active" data-tab="video">Video</button>
+        <button type="button" class="tab" data-tab="channel">Canal</button>
+        <button type="button" class="tab" data-tab="queue">Cola</button>
+        <button type="button" class="tab" data-tab="settings">Ajustes</button>
+        <button type="button" class="tab" data-tab="history">Historial</button>
+      </nav>
+
+      <section id="panel-video" class="panel active">
+        <form id="form" class="card glass">
+          <span class="caption">Enlace del video</span>
+          <div class="row">
+            <input id="url" class="field" type="url" placeholder="https://..." required />
+            <button type="submit" id="btn-analyze" class="btn btn-primary">Analizar</button>
+          </div>
+          <div class="row actions-top">
+            <button type="button" id="btn-quick-mp3" class="btn secondary">MP3 rápido</button>
+            <select id="profile-select" class="field" style="max-width: 200px">
+              <option value="">Perfil…</option>
+            </select>
+            <button type="button" id="btn-profile-dl" class="btn secondary">Descargar perfil</button>
+          </div>
+          <details class="opts">
+            <summary>Opciones avanzadas</summary>
+            <div class="grid">
+              <div>
+                <span class="caption">Desde</span>
+                <input id="trim-start" class="field" placeholder="0:30" />
+              </div>
+              <div>
+                <span class="caption">Hasta</span>
+                <input id="trim-end" class="field" placeholder="1:45" />
+              </div>
+              <label class="chip-toggle"><input type="checkbox" id="subs-es" /> Subtítulos ES</label>
+              <label class="chip-toggle"><input type="checkbox" id="subs-en" /> Subtítulos EN</label>
+              <label class="chip-toggle"><input type="checkbox" id="move-imports-once" /> Mover a Imports</label>
+            </div>
+          </details>
+          <p id="error" class="error hidden"></p>
+        </form>
+
+        <section id="result" class="hidden">
+          <article class="card glass preview">
+            <img id="thumb" alt="" class="hidden" />
+            <div>
+              <h2 id="title"></h2>
+              <p id="meta" class="meta"></p>
+              <div id="result-tags" class="format-meta"></div>
+            </div>
+          </article>
+          <section class="card glass">
+            <div class="section-head"><h3>Video</h3><span class="chip chip-purple">MP4</span></div>
+            <ul id="mp4-list" class="dl-list"></ul>
+          </section>
+          <section class="card glass">
+            <div class="section-head"><h3>Audio</h3><span class="chip chip-blue">MP3</span></div>
+            <ul id="mp3-list" class="dl-list"></ul>
+          </section>
+        </section>
+      </section>
+
+      <section id="panel-channel" class="panel">
+        <div class="card glass">
+          <span class="caption">Canal de YouTube</span>
+          <div class="row">
+            <input id="channel-url" class="field" type="url" placeholder="https://www.youtube.com/@canal/videos" />
+            <input id="channel-limit" type="number" min="1" max="50" value="15" class="field small" />
+            <button type="button" id="btn-channel-load" class="btn btn-primary">Listar</button>
+          </div>
+          <p id="channel-error" class="error hidden"></p>
+          <h3 id="channel-name"></h3>
+          <ul id="channel-list" class="channel-list"></ul>
+          <button type="button" id="btn-channel-queue" class="btn secondary hidden">Añadir a la cola</button>
+        </div>
+      </section>
+
+      <section id="panel-queue" class="panel">
+        <div class="card glass">
+          <span class="caption">Enlaces (uno por línea)</span>
+          <textarea id="queue-urls" class="field" placeholder="https://..."></textarea>
+          <div class="row">
+            <select id="queue-profile" class="field"></select>
+            <select id="queue-kind" class="field" style="max-width: 120px">
+              <option value="mp4">MP4</option>
+              <option value="mp3">MP3</option>
+            </select>
+            <button type="button" id="btn-queue-add" class="btn btn-primary">Encolar</button>
+          </div>
+          <ul id="queue-jobs" class="queue-jobs"></ul>
+        </div>
+      </section>
+
+      <section id="panel-settings" class="panel">
+        <div class="card glass">
+          <span class="caption">Carpeta de descarga</span>
+          <input id="output-dir" class="field" type="text" />
+          <label class="chip-toggle" style="margin: 12px 0">
+            <input type="checkbox" id="move-imports" />
+            Mover siempre a ~/Movies/Imports
+          </label>
+          <button type="button" id="btn-save-settings" class="btn btn-primary">Guardar</button>
+          <p id="settings-msg" class="meta"></p>
+        </div>
+      </section>
+
+      <section id="panel-history" class="panel">
+        <div class="card glass">
+          <button type="button" id="btn-refresh-history" class="btn secondary">Actualizar</button>
+          <ul id="history-list" class="history-list"></ul>
+        </div>
+      </section>
+    </main>
+    <script src="/app.js"></script>
+  </body>
+</html>
