@@ -1,5 +1,8 @@
 Lancé DreamCut: descargador de video 100% local.  YouTube · TikTok · IG · X · Twitch → MP4/MP3 con calidades → Cola + canal + perfiles → Extensión Chrome + menú macOS  Sin webs raras. Todo en tu Mac.
 
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/1c2664e2-b186-49df-8a1a-6bed898e97d2" />
+
+
 ### Pega un enlace. Elige calidad. Descarga.
 
 **DreamCut** es un descargador de video **100% local**: sin cuentas raras, sin webs de terceros, sin subir tus enlaces a la nube. Analiza el video, te muestra formatos en **MP4** y **MP3**, y descarga en tu Mac con un clic.
